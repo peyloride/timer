@@ -1,0 +1,5 @@
+var divselector = <%= @user_id %>
+$("#details").html('<%= escape_javascript(render :partial => 'show') %>');
+$('.deleter').on('click', function(){
+  $(this).closest('div').empty();
+})

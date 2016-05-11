@@ -1,0 +1,64 @@
+<h2>Time Entries for <%= User.find_by(id: @user_id) %></h2>
+
+<canvas id="data_all" width="500" height="500"></canvas>
+<div class="splitcontentleft">
+  <p style="font-size:150%;color:red;"><b>Bug</b></p>
+  <p style="font-size:150%;color:blue;"><b>Feature</b></p>
+</div>
+<div class="splitcontentright">
+  <p style="font-size:150%;color:green;"><b>Support</b></p>
+  <p style="font-size:150%;color:yellow;"><b>Other</b></p>
+</div>
+
+<script type="text/javascript">
+var data_all = [
+
+    <% if @time_entries_for_user.any? %>
+      <% @time_entries_for_user.each do |time_entry| %>
+        <% if time_entry.issue.tracker_id == 1 %>
+          {
+              value: <%= time_entry.hours %>,
+              color:"#FF5252",
+              highlight: "#FF8A80",
+              label: " <%= time_entry.issue.subject %>"
+          },
+        <% elsif time_entry.issue.tracker_id == 2 %>
+          {
+              value: <%= time_entry.hours %>,
+              color:"#03A9F4",
+              highlight: "#B3E5FC",
+              label: " <%= time_entry.issue.subject %>"
+          },
+        <% elsif time_entry.issue.tracker_id == 3 %>
+          {
+              value: <%= time_entry.hours %>,
+              color:"#76FF03",
+              highlight: "#9CCC65",
+              label: " <%= time_entry.issue.subject %>"
+          },
+        <% else %>
+          {
+              value: <%= time_entry.hours %>,
+              color:"#FFEB3B",
+              highlight: "#F1F8E9",
+              label: " <%= time_entry.issue.subject %>"
+          },
+        <% end %>
+      <% end %>
+    <% else %>
+    {
+        value: 1,
+        color:"#999966",
+        highlight: "#999966",
+        label: "There isn't any entry yet."
+    }
+    <% end %>
+
+];
+
+
+var ctx = document.getElementById("data_all").getContext("2d");
+var myNewChart = new Chart(ctx).Pie(data_all, {
+  tooltipCaretSize: 0,
+  tooltipFontSize: 14
+});</script>

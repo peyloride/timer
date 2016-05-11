@@ -1,0 +1,49 @@
+<h2>Times</h2>
+
+<div class="splitcontentleft">
+  <table id="example" class="display" cellspacing="0" width="100%">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Hours</th>
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Hours</th>
+              </tr>
+          </tfoot>
+          <tbody>
+            <% @times_in_projects.each do |time| %>
+            <tr>
+              <td> <%= link_to "#{time.user.firstname} #{time.user.lastname}",
+                    {:controller => "times",
+                     :action => "show",
+                     :project_id => @project.name.downcase,
+                     :user_id => time.user.id,
+                     :remote => true }  %></td>
+              <td><%= time.sum %></td>
+            </tr>
+            <% end %>
+          </tbody>
+  </table>
+</div>
+<div class="splitcontentright" id="details">
+  <h2>Select any user from left to display additional info. </h2>
+</div>
+
+
+
+
+    <% content_for :header_tags do %>
+      <%= stylesheet_link_tag 'jquery.dataTables.min', :plugin => 'timer' %>
+      <%= javascript_include_tag  'jquery.dataTables.min', :plugin => 'timer' %>
+      <%= javascript_include_tag 'Chart2', :plugin => 'timer' %>
+    <% end %>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+  </script>
