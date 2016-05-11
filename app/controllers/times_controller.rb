@@ -10,7 +10,8 @@ class TimesController < ApplicationController
 
   def show
     @user_id = get_user_id
-    @time_entries_for_user = TimeEntry.where(user_id: get_user_id)
+    @time_entries_for_user = TimeEntry.where(user_id: get_user_id).group(:user_id, :issue_id).select('user_id, issue_id, sum(hours) as hours')
+    #@time_entries_for_user = TimeEntry.where(user_id: get_user_id)
     # @bugs = TimeEntry.find_by_sql(["SELECT * FROM time_entries LEFT OUTER JOIN issues ON time_entries.issue_id = issues.id WHERE time_entries.user_id = ? AND issues.tracker_id = 1", @user_id])
     # @features = TimeEntry.find_by_sql(["SELECT * FROM time_entries LEFT OUTER JOIN issues ON time_entries.issue_id = issues.id WHERE time_entries.user_id = ? AND issues.tracker_id = 2", @user_id])
     # @supports = TimeEntry.find_by_sql(["SELECT * FROM time_entries LEFT OUTER JOIN issues ON time_entries.issue_id = issues.id WHERE time_entries.user_id = ? AND issues.tracker_id = 3", @user_id])

@@ -1,6 +1,6 @@
 Redmine::Plugin.register :timer do
   name 'Timer plugin'
-  author 'Author name'
+  author 'Okan Binli'
   description 'This is a plugin for display which user works on which issue how many hours by Chart.js pie charts.'
   version '0.0.1'
   url 'http://github.com'
