@@ -1,3 +1,7 @@
-= timer
+= Timer Plugin
 
-Description goes here
+This is a plugin for display which user works on which issue how many hours by Chart.js pie charts.
+
+= Installation
+
+Just clone this repo into your redmine/plugins folder. Then enable Timer Module on project settings.
