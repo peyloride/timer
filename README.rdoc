@@ -5,3 +5,7 @@ This is a plugin for display which user works on which issue how many hours by C
 = Installation
 
 Just clone this repo into your redmine/plugins folder. Then enable Timer Module on project settings.
+
+= Screenshot
+
+http://i.imgur.com/Rd8D0gV.png
