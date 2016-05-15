@@ -1,4 +1,4 @@
-= Timer Plugin
+= Redmine 3 Timer Plugin
 
 This is a plugin for display which user works on which issue how many hours by Chart.js pie charts.
 
