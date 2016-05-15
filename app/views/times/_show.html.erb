@@ -2,12 +2,12 @@
 
 <canvas id="data_all" width="500" height="500"></canvas>
 <div class="splitcontentleft">
-  <p style="font-size:150%;color:red;"><b>Bug</b></p>
-  <p style="font-size:150%;color:blue;"><b>Feature</b></p>
+  <p style="font-size:150%;color:#FF5252;"><b>Bug</b></p>
+  <p style="font-size:150%;color:#03A9F4;"><b>Feature</b></p>
 </div>
 <div class="splitcontentright">
-  <p style="font-size:150%;color:green;"><b>Support</b></p>
-  <p style="font-size:150%;color:yellow;"><b>Other</b></p>
+  <p style="font-size:150%;color:#388E3C;"><b>Support</b></p>
+  <p style="font-size:150%;color:#FF9800;"><b>Other</b></p>
 </div>
 
 <script type="text/javascript">
@@ -32,14 +32,14 @@ var data_all = [
         <% elsif time_entry.issue.tracker_id == 3 %>
           {
               value: <%= time_entry.hours %>,
-              color:"#76FF03",
+              color:"#388E3C",
               highlight: "#9CCC65",
               label: " <%= time_entry.issue.subject %>"
           },
         <% else %>
           {
               value: <%= time_entry.hours %>,
-              color:"#FFEB3B",
+              color:"#FF9800",
               highlight: "#F1F8E9",
               label: " <%= time_entry.issue.subject %>"
           },
