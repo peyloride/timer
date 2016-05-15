@@ -27,3 +27,5 @@ Bu eklentinin ek herhangi bir gereksinimi yoktur. Eklenti ile birlikte kullanıl
 
  - Seçilen kullanıcının işlerini gösterirken ise hangi işte ne kadar vakit harcadığını grafiksel olarak göstermek için, Chart.JS kütüphanesine verileri geçirdim.
 
+## Lisans
+Bu proje MIT Lisansı kapsamındadır.
